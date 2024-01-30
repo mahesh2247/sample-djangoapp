@@ -1,3 +1,32 @@
+{% if messages %}
+{% for message in messages %}
 <div>
-    <p>Welcome to Register Page!</p>
+    <strong>{{message.tags|upper}}</strong> {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div>
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <h1>
+            Register Here!
+        </h1>
+        <div>
+            <label>
+                Username
+            </label>
+            <input type="text" id="name" name="username" placeholder="Name">
+        </div>
+        <br/>
+        <br/>
+        <div>
+            <lable>
+                Password
+            </lable>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <br/>
+        <button type="submit">Register</button>
+
+    </form>
 </div>
