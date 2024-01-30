@@ -19,6 +19,9 @@ class Index(View):
 
 class Login(View): 
     def get(self, request):
+        if request.user.is_authenticated:
+            messages.info(request, "You are already logged in , kindly logout first!")
+            return redirect("index")
         return render(request, "login.html")
     
     def post(self, request):
