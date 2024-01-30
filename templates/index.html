@@ -12,8 +12,7 @@
   <button type="button">Logout!</button>
 </a>
 <br/>
-{% endif %}
-
+{% else %}
 <div class="container mt-5 mb-5">
   <a href="{% url 'login' %}">
     <button type="button">Click here to Login!</button>
@@ -26,3 +25,4 @@
 </div>
 </form>
 </div>
+{% endif %}
