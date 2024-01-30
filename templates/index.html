@@ -1,3 +1,19 @@
+{% if messages %}
+{% for message in messages %}
+<div>
+    <strong>{{message.tags|upper}}</strong> {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if request.user.is_authenticated %}
+<p>Hi {{ user.username }}!</p>
+<a href="{% url 'logout' %}">
+  <button type="button">Logout!</button>
+</a>
+<br/>
+{% endif %}
+
 <div class="container mt-5 mb-5">
   <a href="{% url 'login' %}">
     <button type="button">Click here to Login!</button>
